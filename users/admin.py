@@ -9,7 +9,7 @@ from .models import CustomUser
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     add_fieldsets = UserAdmin.add_fieldsets + (
-        (None, {'fields': ('gender', 'address', 'phone', 'description', 'role')}),
+        (None, {'fields': ('full_name', 'gender', 'address', 'phone', 'description', 'role')}),
     )
 
 
