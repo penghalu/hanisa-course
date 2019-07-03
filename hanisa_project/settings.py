@@ -124,5 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 # Using custom user model instead of the built-in one
 AUTH_USER_MODEL = 'users.CustomUser'
