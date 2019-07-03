@@ -8,20 +8,21 @@
     <link rel="stylesheet" href="{% static "node_modules/bulma/css/bulma.min.css" %}">
 </head>
 <body>
-    <section class="section">
-        <div class="container">
-            <h1 class="title">
-                Hello World
-            </h1>
-            <p class="subtitle">
-                {% if user.is_authenticated %}
-                    Welcome, {{ user.username }}!<br>
-                    <a href="{% url 'logout' %}">Logout</a>
-                {% else %}
-                    My first website with <strong>Bulma</strong>!
-                {% endif %}
-            </p>
-        </div>
-    </section>
+{% include 'bulma_header.html' %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Hello World
+        </h1>
+        <p class="subtitle">
+            {% if user.is_authenticated %}
+                Welcome, {{ user.username }}!<br>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                My first website with <strong>Bulma</strong>!
+            {% endif %}
+        </p>
+    </div>
+</section>
 </body>
 </html>
