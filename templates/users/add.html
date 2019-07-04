@@ -1,0 +1,84 @@
+{% extends 'users/base.html' %}
+
+{% block heading %}New User{% endblock %}
+
+{% block article %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label for="{{ form.role.name }}" class="label">{{ form.role.label }}</label>
+            <div class="control">
+                <div class="select">
+                    <select name="{{ form.role.name }}" id="{{ form.role.name }}">
+                        <option value="Mentor">Mentor</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.full_name.name }}" class="label">{{ form.full_name.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.full_name.name }}" id="{{ form.full_name.name }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.email.name }}" class="label">{{ form.email.label }}</label>
+            <div class="control">
+                <input type="email" class="input" name="{{ form.email.name }}" id="{{ form.email.name }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.gender.name }}" class="label">{{ form.gender.label }}</label>
+            <div class="control">
+                <div class="select">
+                    <select name="{{ form.gender.name }}" id="{{ form.gender.name }}">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.phone.name }}" class="label">{{ form.phone.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.phone.name }}" id="{{ form.phone.name }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.address.name }}" class="label">{{ form.address.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.address.name }}" id="{{ form.address.name }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.username.name }}" class="label">{{ form.username.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.username.name }}" id="{{ form.username.name }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.password.name }}" class="label">{{ form.password.label }}</label>
+            <div class="control">
+                <input type="password" class="input" name="{{ form.password.name }}" id="{{ form.password.name }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="password2" class="label">Re-enter password</label>
+            <div class="control">
+                <input type="password" class="input" name="password2" id="password2">
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.description.name }}" class="label">{{ form.description.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.description.name }}" id="{{ form.description.name }}">
+            </div>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-link">Save</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
