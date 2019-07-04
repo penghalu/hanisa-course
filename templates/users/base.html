@@ -1,0 +1,13 @@
+{% extends 'bulma_base.html' %}
+
+{% block content %}
+    <div class="message is-primary">
+        <div class="message-header">
+            <p>{% block heading %}{% endblock %}</p>
+        </div>
+        <div class="message-body">
+            {% block article %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

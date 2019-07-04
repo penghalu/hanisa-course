@@ -1,34 +1,30 @@
-{% extends 'bulma_base.html' %}
-{% block content %}
-    <div class="message is-primary">
-        <div class="message-header">
-            <p>Users</p>
-        </div>
-        <div class="message-body">
-            <table class="table is-fullwidth is-hoverable">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Role</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Username</th>
-                        <th>Gender</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for user in users %}
-                        <tr>
-                            <td>{{ user.full_name }}</td>
-                            <td>{{ user.role }}</td>
-                            <td>{{ user.phone }}</td>
-                            <td>{{ user.email }}</td>
-                            <td>{{ user.username }}</td>
-                            <td>{{ user.gender }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
+{% extends 'users/base.html' %}
+
+{% block heading %}Users{% endblock %}
+
+{% block article %}
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.full_name }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.gender }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
