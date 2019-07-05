@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView
+from django.shortcuts import reverse
+from django.views.generic import CreateView, ListView
 
 from .models import Subject
 
@@ -10,3 +11,15 @@ class SubjectList(LoginRequiredMixin, ListView):
     context_object_name = 'subjects'
     template_name = 'course_management/subject_list.html'
     login_url = 'home'
+
+
+class SubjectAdd(CreateView):
+    model = Subject
+    template_name = 'course_management/subject_add.html'
+    fields = [
+        'name',
+        'code'
+    ]
+
+    def get_success_url(self):
+        return reverse('course_management:subject_list')

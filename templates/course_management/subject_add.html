@@ -1,0 +1,26 @@
+{% extends 'course_management/subject_base.html' %}
+
+{% block heading %}New Subject{% endblock %}
+
+{% block article %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label for="{{ form.name.name }}" class="label">{{ form.name.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.name.name }}" id="{{ form.name.name }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.code.name }}" class="label">{{ form.code.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.code.name }}" id="{{ form.code.name }}">
+            </div>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-link">Save</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
