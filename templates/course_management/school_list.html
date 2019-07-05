@@ -1,6 +1,6 @@
 {% extends 'course_management/school_base.html' %}
 
-{% block heading %}School{% endblock %}
+{% block heading %}Schools{% endblock %}
 
 {% block article %}
     <table class="table is-fullwidth is-hoverable">
@@ -13,7 +13,7 @@
         <tbody>
             {% for school in schools %}
                 <tr>
-                    <td>{{ school.name }}</td>
+                    <td><a href="{% url 'course_management:school_update' school.pk %}">{{ school.name }}</a></td>
                     <td>{{ school.address }}</td>
                 </tr>
             {% endfor %}

@@ -1,0 +1,33 @@
+{% extends 'course_management/school_base.html' %}
+
+{% block heading %}
+    {% if request.resolver_match.url_name == 'school_add' %}
+        New
+    {% else %}
+        Edit
+    {% endif %}
+    School
+{% endblock %}
+
+{% block article %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label for="{{ form.name.name }}" class="label">{{ form.name.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.name.name }}" id="{{ form.name.name }}"{% if form.name.value %}value="{{ form.name.value }}"{% endif %}>
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.address.name }}" class="label">{{ form.address.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.address.name }}" id="{{ form.address.name }}"{% if form.address.value %}value="{{ form.address.value }}"{% endif %}>
+            </div>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-link">Save</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
