@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import reverse
 from django.views.generic import CreateView, ListView
 
-from .models import Student, Subject
+from .models import School, Student, Subject
 
 
 # Create your views here.
@@ -39,3 +39,10 @@ class StudentAdd(CreateView):
 
     def get_success_url(self):
         return reverse('course_management:student_list')
+
+
+class SchoolList(LoginRequiredMixin, ListView):
+    model = School
+    context_object_name = 'schools'
+    template_name = 'course_management/school_list.html'
+    login_url = 'home'

@@ -16,6 +16,7 @@
                     <li{% if request.resolver_match.url_name == 'add' or request.resolver_match.url_name == 'list' %} class="is-active"{% endif %}><a href="{% url 'users:list' %}">Users</a></li>
                     <li{% if request.resolver_match.url_name == 'subject_list' or request.resolver_match.url_name == 'subject_add' %} class="is-active"{% endif %}><a href="{% url 'course_management:subject_list' %}">Subjects</a></li>
                     <li{% if request.resolver_match.url_name == 'student_list' or request.resolver_match.url_name == 'student_add' %} class="is-active"{% endif %}><a href="{% url 'course_management:student_add' %}">Students</a></li>
+                    <li{% if request.resolver_match.url_name == 'school_list' %} class="is-active"{% endif %}><a href="{% url 'course_management:school_list' %}">Schools</a></li>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% endif %}
