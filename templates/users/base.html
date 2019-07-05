@@ -1,5 +1,17 @@
 {% extends 'bulma_base.html' %}
 
+{% block menu %}
+    <aside class="menu">
+        <p class="menu-label">
+            User Management
+        </p>
+        <ul class="menu-list">
+            <li><a href="{% url 'users:list' %}">Users</a></li>
+            <li><a href="{% url 'users:add' %}">Add User</a></li>
+        </ul>
+    </aside>
+{% endblock %}
+
 {% block content %}
     <div class="message is-primary">
         <div class="message-header">
