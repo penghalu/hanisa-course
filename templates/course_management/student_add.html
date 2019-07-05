@@ -12,15 +12,27 @@
             </div>
         </div>
         <div class="field">
+            <label for="{{ form.address.name }}" class="label">{{ form.address.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.address.name }}" id="{{ form.address.name }}">
+            </div>
+        </div>
+        <div class="field">
             <label for="{{ form.grade.name }}" class="label">{{ form.grade.label }}</label>
             <div class="control">
                 <input type="text" class="input" name="{{ form.grade.name }}" id="{{ form.grade.name }}">
             </div>
         </div>
         <div class="field">
-            <label for="{{ form.address.name }}" class="label">{{ form.address.label }}</label>
+            <label for="{{ form.school.name }}" class="label">{{ form.school.label }}</label>
             <div class="control">
-                <input type="text" class="input" name="{{ form.address.name }}" id="{{ form.address.name }}">
+                <div class="select">
+                    <select name="{{ form.school.name }}" id="{{ form.school.name }}">
+                        {% for school in form.school %}
+                            <option value="{{ school.id }}">{{ school }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
         </div>
         <div class="field is-grouped">
