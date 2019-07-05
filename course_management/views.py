@@ -30,3 +30,12 @@ class StudentList(LoginRequiredMixin, ListView):
     context_object_name = 'students'
     template_name = 'course_management/student_list.html'
     login_url = 'home'
+
+
+class StudentAdd(CreateView):
+    model = Student
+    template_name = 'course_management/student_add.html'
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse('course_management:student_list')

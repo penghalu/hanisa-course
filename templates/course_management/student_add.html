@@ -1,0 +1,32 @@
+{% extends 'course_management/student_base.html' %}
+
+{% block heading %}New Student{% endblock %}
+
+{% block article %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label for="{{ form.name.name }}" class="label">{{ form.name.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.name.name }}" id="{{ form.name.name }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.grade.name }}" class="label">{{ form.grade.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.grade.name }}" id="{{ form.grade.name }}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="{{ form.address.name }}" class="label">{{ form.address.label }}</label>
+            <div class="control">
+                <input type="text" class="input" name="{{ form.address.name }}" id="{{ form.address.name }}">
+            </div>
+        </div>
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-link">Save</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
