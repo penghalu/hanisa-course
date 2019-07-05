@@ -7,14 +7,14 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Student</th>
+                <th>Address</th>
             </tr>
         </thead>
         <tbody>
             {% for school in schools %}
                 <tr>
                     <td>{{ school.name }}</td>
-                    <td>{{ school.student }}</td>
+                    <td>{{ school.address }}</td>
                 </tr>
             {% endfor %}
         </tbody>
