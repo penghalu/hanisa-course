@@ -46,3 +46,12 @@ class SchoolList(LoginRequiredMixin, ListView):
     context_object_name = 'schools'
     template_name = 'course_management/school_list.html'
     login_url = 'home'
+
+
+class SchoolAdd(CreateView):
+    model = School
+    template_name = 'course_management/school_add.html'
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse('course_management:school_list')
