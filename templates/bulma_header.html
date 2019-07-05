@@ -14,6 +14,7 @@
             <div class="container">
                 <ul>
                     <li class="is-active"><a href="{% url 'users:list' %}">Users</a></li>
+                    <li><a href="{% url 'course_management:subject_list' %}">Subjects</a></li>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% endif %}

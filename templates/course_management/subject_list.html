@@ -1,0 +1,22 @@
+{% extends 'users/base.html' %}
+
+{% block heading %}Subjects{% endblock %}
+
+{% block article %}
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subject in subjects %}
+                <tr>
+                    <td>{{ subject.name }}</td>
+                    <td>{{ subject.code }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
