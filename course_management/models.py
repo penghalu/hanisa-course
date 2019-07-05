@@ -10,18 +10,19 @@ class Subject(models.Model):
         return self.name
 
 
-class Student(models.Model):
+class School(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=200, blank=True)
-    grade = models.CharField(max_length=3)
 
     def __str__(self):
         return self.name
 
 
-class School(models.Model):
+class Student(models.Model):
     name = models.CharField(max_length=50)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='school')
+    address = models.CharField(max_length=200, blank=True)
+    grade = models.CharField(max_length=3)
+    school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='student')
 
     def __str__(self):
         return self.name
