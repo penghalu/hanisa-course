@@ -1,0 +1,24 @@
+{% extends 'course_management/student_base.html' %}
+
+{% block heading %}Students{% endblock %}
+
+{% block article %}
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Grade</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.grade }}</td>
+                    <td>{{ student.address }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
