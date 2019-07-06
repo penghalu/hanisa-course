@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import reverse
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from .models import School, Student, Subject
 
@@ -44,7 +44,6 @@ class StudentAdd(CreateView):
 class SchoolList(LoginRequiredMixin, ListView):
     model = School
     context_object_name = 'schools'
-    template_name = 'course_management/school_list.html'
     login_url = 'home'
 
 
@@ -62,3 +61,8 @@ class SchoolUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse('course_management:school_list')
+
+
+class SchoolDelete(DeleteView):
+    model = School
+    success_url = 'school_management:school_list'
