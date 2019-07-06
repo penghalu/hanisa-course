@@ -65,4 +65,6 @@ class SchoolUpdate(UpdateView):
 
 class SchoolDelete(DeleteView):
     model = School
-    success_url = 'school_management:school_list'
+
+    def get_success_url(self):
+        return reverse('course_management:school_list')
