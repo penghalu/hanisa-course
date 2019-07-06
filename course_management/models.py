@@ -22,7 +22,7 @@ class Student(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=200, blank=True)
     grade = models.CharField(max_length=3)
-    school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='student')
+    school = models.ForeignKey(School, on_delete=models.SET_NULL, related_name='student', null=True)
 
     def __str__(self):
         return self.name
