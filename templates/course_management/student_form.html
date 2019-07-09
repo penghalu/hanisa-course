@@ -1,6 +1,13 @@
 {% extends 'course_management/student_base.html' %}
 
-{% block heading %}New Student{% endblock %}
+{% block heading %}
+    {% if request.resolver_match.url_name == 'school_add' %}
+        New
+    {% else %}
+        Edit
+    {% endif %}
+    Student
+{% endblock %}
 
 {% block article %}
     <form method="post">
@@ -8,19 +15,19 @@
         <div class="field">
             <label for="{{ form.name.name }}" class="label">{{ form.name.label }}</label>
             <div class="control">
-                <input type="text" class="input" name="{{ form.name.name }}" id="{{ form.name.name }}">
+                <input type="text" class="input" name="{{ form.name.name }}" id="{{ form.name.name }}" {% if form.name.value %}value="{{ form.name.value }}"{% endif %}>
             </div>
         </div>
         <div class="field">
             <label for="{{ form.address.name }}" class="label">{{ form.address.label }}</label>
             <div class="control">
-                <input type="text" class="input" name="{{ form.address.name }}" id="{{ form.address.name }}">
+                <input type="text" class="input" name="{{ form.address.name }}" id="{{ form.address.name }}" {% if form.address.value %}value="{{ form.address.value }}"{% endif %}>
             </div>
         </div>
         <div class="field">
             <label for="{{ form.grade.name }}" class="label">{{ form.grade.label }}</label>
             <div class="control">
-                <input type="text" class="input" name="{{ form.grade.name }}" id="{{ form.grade.name }}">
+                <input type="text" class="input" name="{{ form.grade.name }}" id="{{ form.grade.name }}" {% if form.grade.value %}value="{{ form.grade.value }}"{% endif %}>
             </div>
         </div>
         <div class="field">
@@ -29,7 +36,7 @@
                 <div class="select">
                     <select name="{{ form.school.name }}" id="{{ form.school.name }}">
                         {% for school in form.school %}
-                            <option value="{{ school.id }}">{{ school }}</option>
+                            {{ school }}
                         {% endfor %}
                     </select>
                 </div>
