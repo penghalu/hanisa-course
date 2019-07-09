@@ -8,6 +8,7 @@
             <tr>
                 <th>Name</th>
                 <th>Code</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +16,13 @@
                 <tr>
                     <td><a href="{% url 'course_management:subject_update' subject.pk %}">{{ subject.name }}</a></td>
                     <td>{{ subject.code }}</td>
+                    <td>
+                        <a href="{% url 'course_management:subject_delete' subject.pk %}">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </span>
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
