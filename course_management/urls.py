@@ -2,7 +2,7 @@ from django.urls import path
 
 from .views import SchoolAdd, SchoolDelete, SchoolList, SchoolUpdate, \
     SubjectAdd, SubjectList, \
-    StudentAdd, StudentList, StudentUpdate
+    StudentAdd, StudentList, StudentUpdate, StudentDelete
 
 
 app_name = 'course_management'
@@ -13,6 +13,7 @@ urlpatterns = [
     path('students/', StudentList.as_view(), name='student_list'),
     path('students/add/', StudentAdd.as_view(), name='student_add'),
     path('students/edit/<int:pk>/', StudentUpdate.as_view(), name='student_update'),
+    path('students/delete/<int:pk>/', StudentDelete.as_view(), name='student_delete'),
     path('schools/', SchoolList.as_view(), name='school_list'),
     path('schools/add/', SchoolAdd.as_view(), name='school_add'),
     path('schools/edit/<int:pk>/', SchoolUpdate.as_view(), name='school_update'),

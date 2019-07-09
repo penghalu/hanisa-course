@@ -49,6 +49,13 @@ class StudentUpdate(UpdateView):
         return reverse('course_management:student_list')
 
 
+class StudentDelete(DeleteView):
+    model = Student
+
+    def get_success_url(self):
+        return reverse('course_management:student_list')
+
+
 class SchoolList(LoginRequiredMixin, ListView):
     model = School
     context_object_name = 'schools'

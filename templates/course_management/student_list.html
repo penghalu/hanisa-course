@@ -9,6 +9,7 @@
                 <th>Name</th>
                 <th>Grade</th>
                 <th>School</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,13 @@
                     <td><a href="{% url 'course_management:student_update' student.pk %}">{{ student.name }}</a></td>
                     <td>{{ student.grade }}</td>
                     <td>{{ student.school }}</td>
+                    <td>
+                        <a href="{% url 'course_management:student_delete' student.pk %}">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </span>
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
