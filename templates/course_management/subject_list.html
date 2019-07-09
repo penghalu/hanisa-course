@@ -13,7 +13,7 @@
         <tbody>
             {% for subject in subjects %}
                 <tr>
-                    <td>{{ subject.name }}</td>
+                    <td><a href="{% url 'course_management:subject_update' subject.pk %}">{{ subject.name }}</a></td>
                     <td>{{ subject.code }}</td>
                 </tr>
             {% endfor %}

@@ -8,13 +8,13 @@
         <div class="field">
             <label for="{{ form.name.name }}" class="label">{{ form.name.label }}</label>
             <div class="control">
-                <input type="text" class="input" name="{{ form.name.name }}" id="{{ form.name.name }}">
+                <input type="text" class="input" name="{{ form.name.name }}" id="{{ form.name.name }}"{% if form.name.value %} value="{{ form.name.value }}"{% endif %}>
             </div>
         </div>
         <div class="field">
             <label for="{{ form.code.name }}" class="label">{{ form.code.label }}</label>
             <div class="control">
-                <input type="text" class="input" name="{{ form.code.name }}" id="{{ form.code.name }}">
+                <input type="text" class="input" name="{{ form.code.name }}" id="{{ form.code.name }}"{% if form.code.value %} value="{{ form.code.value }}"{% endif %}>
             </div>
         </div>
         <div class="field is-grouped">

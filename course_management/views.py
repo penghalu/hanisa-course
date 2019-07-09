@@ -15,11 +15,15 @@ class SubjectList(LoginRequiredMixin, ListView):
 
 class SubjectAdd(CreateView):
     model = Subject
-    template_name = 'course_management/subject_add.html'
-    fields = [
-        'name',
-        'code'
-    ]
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse('course_management:subject_list')
+
+
+class SubjectUpdate(UpdateView):
+    model = Subject
+    fields = '__all__'
 
     def get_success_url(self):
         return reverse('course_management:subject_list')
