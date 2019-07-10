@@ -12,7 +12,7 @@ from .models import CustomUser
 # Create your views here.
 class UserList(LoginRequiredMixin, ListView):
     model = CustomUser
-    template_name = 'users/list.html'
+    template_name = 'users/user_list.html'
     context_object_name = 'users'
     login_url = 'home'
 
@@ -20,7 +20,7 @@ class UserList(LoginRequiredMixin, ListView):
 @method_decorator(staff_member_required, name='dispatch')
 class UserAdd(CreateView):
     model = CustomUser
-    template_name = 'users/add.html'
+    template_name = 'users/user_form.html'
     form_class = CustomUserCreationForm
 
 
