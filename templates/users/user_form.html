@@ -1,6 +1,13 @@
 {% extends 'users/user_base.html' %}
 
-{% block heading %}New User{% endblock %}
+{% block heading %}
+    {% if request.resolver_match.url_name == 'add' %}
+        New
+    {% else %}
+        Edit
+    {% endif %}
+    User
+{% endblock %}
 
 {% block article %}
     <form method="post">
@@ -19,13 +26,13 @@
         <div class="field">
             <label for="{{ form.full_name.name }}" class="label">{{ form.full_name.label }}</label>
             <div class="control">
-                <input type="text" class="input" name="{{ form.full_name.name }}" id="{{ form.full_name.name }}">
+                <input type="text" class="input" name="{{ form.full_name.name }}" id="{{ form.full_name.name }}"{% if form.full_name.value %} value="{{ form.full_name.value }}"{% endif %}>
             </div>
         </div>
         <div class="field">
             <label for="{{ form.email.name }}" class="label">{{ form.email.label }}</label>
             <div class="control">
-                <input type="email" class="input" name="{{ form.email.name }}" id="{{ form.email.name }}">
+                <input type="email" class="input" name="{{ form.email.name }}" id="{{ form.email.name }}"{% if form.email.value %} value="{{ form.email.value }}"{% endif %}>
             </div>
         </div>
         <div class="field">
@@ -42,33 +49,35 @@
         <div class="field">
             <label for="{{ form.phone.name }}" class="label">{{ form.phone.label }}</label>
             <div class="control">
-                <input type="text" class="input" name="{{ form.phone.name }}" id="{{ form.phone.name }}">
+                <input type="text" class="input" name="{{ form.phone.name }}" id="{{ form.phone.name }}"{% if form.phone.value %} value="{{ form.phone.value }}"{% endif %}>
             </div>
         </div>
         <div class="field">
             <label for="{{ form.address.name }}" class="label">{{ form.address.label }}</label>
             <div class="control">
-                <input type="text" class="input" name="{{ form.address.name }}" id="{{ form.address.name }}">
+                <input type="text" class="input" name="{{ form.address.name }}" id="{{ form.address.name }}"{% if form.address.value %} value="{{ form.address.value }}"{% endif %}>
             </div>
         </div>
-        <div class="field">
-            <label for="{{ form.username.name }}" class="label">{{ form.username.label }}</label>
-            <div class="control">
-                <input type="text" class="input" name="{{ form.username.name }}" id="{{ form.username.name }}">
+        {% if form.username %}
+            <div class="field">
+                <label for="{{ form.username.name }}" class="label">{{ form.username.label }}</label>
+                <div class="control">
+                    <input type="text" class="input" name="{{ form.username.name }}" id="{{ form.username.name }}">
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label for="{{ form.password1.name }}" class="label">{{ form.password1.label }}</label>
-            <div class="control">
-                <input type="password" class="input" name="{{ form.password1.name }}" id="{{ form.password1.id }}">
+            <div class="field">
+                <label for="{{ form.password1.name }}" class="label">{{ form.password1.label }}</label>
+                <div class="control">
+                    <input type="password" class="input" name="{{ form.password1.name }}" id="{{ form.password1.id }}">
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label for="{{ form.password1.name }}" class="label">{{ form.password2.label }}</label>
-            <div class="control">
-                <input type="password" class="input" name="{{ form.password2.name }}" id="{{ form.password2.id }}">
+            <div class="field">
+                <label for="{{ form.password1.name }}" class="label">{{ form.password2.label }}</label>
+                <div class="control">
+                    <input type="password" class="input" name="{{ form.password2.name }}" id="{{ form.password2.id }}">
+                </div>
             </div>
-        </div>
+        {% endif %}
         <div class="field">
             <label for="{{ form.description.name }}" class="label">{{ form.description.label }}</label>
             <div class="control">
