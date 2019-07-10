@@ -2,7 +2,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import reverse
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.utils.decorators import method_decorator
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
@@ -31,6 +31,14 @@ class UserUpdate(UpdateView):
     model = CustomUser
     form_class = CustomUserChangeForm
     template_name = 'users/user_form.html'
+
+    def get_success_url(self):
+        return reverse('users:list')
+
+
+class UserDelete(DeleteView):
+    model = CustomUser
+    template_name = 'users/user_delete.html'
 
     def get_success_url(self):
         return reverse('users:list')

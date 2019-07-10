@@ -12,6 +12,7 @@
                 <th>Email</th>
                 <th>Username</th>
                 <th>Gender</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,13 @@
                     <td>{{ user.email }}</td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.gender }}</td>
+                    <td>
+                        <a href="{% url 'users:delete' user.pk %}">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </span>
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
