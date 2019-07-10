@@ -6,7 +6,16 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = '__all__'
+        fields = [
+            'role',
+            'full_name',
+            'email',
+            'username',
+            'gender',
+            'address',
+            'phone',
+            'description'
+        ]
 
 
 class CustomUserChangeForm(UserChangeForm):

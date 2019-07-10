@@ -5,6 +5,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from django.utils.decorators import method_decorator
 
+from .forms import CustomUserCreationForm
 from .models import CustomUser
 
 
@@ -20,17 +21,8 @@ class UserList(LoginRequiredMixin, ListView):
 class UserAdd(CreateView):
     model = CustomUser
     template_name = 'users/add.html'
-    fields = [
-        'role',
-        'full_name',
-        'email',
-        'username',
-        'password',
-        'gender',
-        'address',
-        'phone',
-        'description'
-    ]
+    form_class = CustomUserCreationForm
+
 
     def get_success_url(self):
         return reverse('users:list')
