@@ -43,7 +43,7 @@ class Schedule(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.created_at
+        return self.mentor.full_name
 
 
 class Payment(models.Model):
