@@ -36,6 +36,7 @@ class Schedule(models.Model):
     mentor = models.ForeignKey(CustomUser, on_delete=models.PROTECT, related_name='schedule')
     subject = models.ForeignKey(Subject, on_delete=models.PROTECT, related_name='schedule')
     student = models.ForeignKey(Student, on_delete=models.PROTECT, related_name='schedule')
+    payment = models.OneToOneField('Payment', on_delete=models.PROTECT, related_name='schedule')
     cost = MoneyField(max_digits=7, decimal_places=2, default_currency='IDR')
     description = models.CharField(max_length=200, verbose_name='Additional info', blank=True)
     schedule_start = models.DateTimeField()
@@ -53,7 +54,6 @@ class Payment(models.Model):
     ]
 
     status = models.CharField(max_length=7, choices=PAYMENT_STATUS, default='Waiting')
-    schedule = models.OneToOneField(Schedule, on_delete=models.PROTECT, related_name='payment')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
