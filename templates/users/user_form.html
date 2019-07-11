@@ -17,8 +17,10 @@
             <div class="control">
                 <div class="select">
                     <select name="{{ form.role.name }}" id="{{ form.role.name }}">
-                        <option value="Mentor">Mentor</option>
-                        <option value="Admin">Admin</option>
+                        {% for role in form.role %}
+                            {{ role }}
+                        {% endfor %}
+
                     </select>
                 </div>
             </div>
@@ -40,8 +42,9 @@
             <div class="control">
                 <div class="select">
                     <select name="{{ form.gender.name }}" id="{{ form.gender.name }}">
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
+                        {% for gender in form.gender %}
+                            {{ gender }}
+                        {% endfor %}
                     </select>
                 </div>
             </div>
