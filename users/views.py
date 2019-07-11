@@ -12,6 +12,7 @@ from .models import CustomUser
 # Create your views here.
 class UserList(LoginRequiredMixin, ListView):
     model = CustomUser
+    queryset = CustomUser.objects.filter(is_superuser=False)
     template_name = 'users/user_list.html'
     context_object_name = 'users'
     login_url = 'home'
