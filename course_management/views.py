@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import reverse
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
-from .models import School, Student, Subject
+from .models import Schedule, School, Student, Subject
 
 
 # Create your views here.
@@ -94,3 +94,9 @@ class SchoolDelete(DeleteView):
 
     def get_success_url(self):
         return reverse('course_management:school_list')
+
+
+class ScheduleList(LoginRequiredMixin, ListView):
+    model = Schedule
+    context_object_name = 'schedules'
+    login_url = 'home'

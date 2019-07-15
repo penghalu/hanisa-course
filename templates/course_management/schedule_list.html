@@ -1,0 +1,41 @@
+{% extends 'course_management/schedule_base.html' %}
+
+{% block heading %}Schedules{% endblock %}
+
+{% block article %}
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+            <tr>
+                <th>Mentor</th>
+                <th>Subject</th>
+                <th>Student</th>
+                <th>Payment</th>
+                <th>Cost</th>
+                <th>Additional info</th>
+                <th>Schedule start</th>
+                <th>Schedule end</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for schedule in schedules %}
+                <tr>
+                    <td>{{ schedule.mentor }}</td>
+                    <td>{{ schedule.subject }}</td>
+                    <td>{{ schedule.student }}</td>
+                    <td>{{ schedule.payment }}</td>
+                    <td>{{ schedule.cost }}</td>
+                    <td>{{ schedule.description }}</td>
+                    <td>{{ schedule.schedule_start }}</td>
+                    <td>{{ schedule.schedule_end }}</td>
+                    <td>
+                        <a href="{% url 'course_management:subject_delete' subject.pk %}">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
