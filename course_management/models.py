@@ -1,7 +1,5 @@
 from django.db import models
 
-from djmoney.models.fields import MoneyField
-
 from users.models import CustomUser
 
 
@@ -37,7 +35,7 @@ class Schedule(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.PROTECT, related_name='schedule')
     student = models.ForeignKey(Student, on_delete=models.PROTECT, related_name='schedule')
     payment = models.OneToOneField('Payment', on_delete=models.PROTECT, related_name='schedule')
-    cost = MoneyField(max_digits=7, decimal_places=2, default_currency='IDR')
+    cost = models.CharField(max_length=7)
     description = models.CharField(max_length=200, verbose_name='Additional info', blank=True)
     schedule_start = models.DateTimeField()
     schedule_end = models.DateTimeField()
