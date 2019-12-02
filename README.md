@@ -18,7 +18,6 @@ $ pipenv --three
 
 
 ## The easiest way to run this project
-Assume that you've already had user `dbadmin` in the database.
 ```
 $ sudo -u postgres createdb hanisa-course --owner [database_user] --password
 $ python3 manage.py migrate
